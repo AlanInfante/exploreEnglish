@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    list-style-type: none;
+}
+
+body{
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+/* ===== HEADER ===== */
+header{
+    background-color: hsla(316, 38%, 86%, 0.582);
+}
+
+nav{
+    display: flex;
+    padding: 7px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo{
+    width: 80px;
+}
+
+.menu{
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.itemList{
+    text-decoration: none;
+    color: #1c1c1c;
+    transition: .3s;
+}
+
+.active{
+    text-decoration: underline;
+}
+
+li a:hover{
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* ===== BANNER (imagen + texto) ===== */
+/* OJO: esto funciona SI en tu HTML envolvés img + p dentro de <div class="banner"> */
+.banner{
+    position: relative;
+}
+
+.mainImg{
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    display: block;
+    background-image: url("./assets/img/main.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Overlay SOLO arriba */
+.banner::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.mainText{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 90%;
+    max-width: 900px;
+    text-shadow: 3px 3px 3px  #1c1c1c;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* ===== TITULO TARJETAS ===== */
+.tituloTarjetas{
+    text-align: center;
+    padding: 20px;
+    color: #9590aa;
+}
+
+/************** Cards + whatsapp *****************/
+.contenedorTarjetas{
+    display: flex;
+    padding: 30px;
+    gap: 50px;
+    justify-content: space-evenly;
+}
+.tarjeta{
+     width: 320px;
+     background: #ffffff;
+     border-radius: 12px;
+     padding: 12px;
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     align-items: center;
+     box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+     transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.tarjeta:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+}
+
+
+.tarjetaImg{
+  width: 100%;
+  height: 260px;          /* fija para que sean iguales */
+  object-fit: cover;
+  border-radius: 10px;
+}
+.tituloTarjetas{
+  text-align: center;
+  padding: 28px 18px 10px 18px;
+  color: #6b6780;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/******************************************************* Codigo BOTON *****************************************/ 
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  overflow: hidden;
+  height: 2rem;
+  background-size: 300% 300%;
+  cursor: pointer;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+  transition: 0.5s;
+  animation: gradient_301 5s ease infinite;
+  border: double 2.5px transparent;
+  background-image: linear-gradient(#212121, #212121),
+    linear-gradient(
+      137.48deg,
+      #ffdb3b 10%,
+      #fe53bb 45%,
+      #8f51ea 67%,
+      #0044ff 87%
+    );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+#container-stars {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+}
+
+strong {
+  z-index: 2;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow: 0 0 4px white;
+}
+
+#glow {
+  position: absolute;
+  display: flex;
+  width: 12rem;
+}
+
+.circle {
+  width: 100%;
+  height: 30px;
+  filter: blur(2rem);
+  animation: pulse_3011 4s infinite;
+  z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+  background: rgba(254, 83, 186, 0.636);
+}
+
+.circle:nth-of-type(2) {
+  background: rgba(142, 81, 234, 0.704);
+}
+
+.btn:hover #container-stars {
+  z-index: 1;
+  background-color: #212121;
+}
+
+.btn:active {
+  border: double 4px #fe53bb;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: none;
+}
+
+.btn:active .circle {
+  background: #fe53bb;
+}
+
+#stars {
+  position: relative;
+  background: transparent;
+  width: 200rem;
+  height: 200rem;
+}
+
+#stars::after {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  left: -100rem;
+  width: 100%;
+  height: 100%;
+  animation: animStarRotate 90s linear infinite;
+}
+
+#stars::after {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+}
+
+#stars::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 170%;
+  height: 500%;
+  animation: animStar 60s linear infinite;
+}
+
+#stars::before {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-135rem);
+  }
+}
+
+@keyframes animStarRotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes gradient_301 {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse_3011 {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+/********************************************************FIN BOTON ********************************************/
+
+.tarjetaBtn:hover{
+    color: #ffffff;
+    background-color: #1c1c1c;
+}
+
+.whatsapp{
+    width: 50px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+footer{
+    height: 50px;
+    background-color: #252527fb;
+    color:white;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.ico>img{
+    width: 25px;
+    margin-inline: 5px;
+}
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 768px){
+    nav{
+        padding: 3px;
+    }
+
+    .menu{
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .logo{
+        width: 60px;
+    }
+
+    .itemList{
+        font-size: 15px;
+    }
+
+    .tarjetaDescripcion{
+        font-size: 12px;
+    }
+
+    .mainImg{
+        height: 340px;
+    }
+
+    .mainText{
+        font-size: 16px;
+
+    }
+}
+
+@media screen and (max-width: 650px){
+    .contenedorTarjetas{
+        padding: 15px;
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+
+    }
+}
+
+
