@@ -12,7 +12,8 @@ body{
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
-/* ===== HEADER ===== */
+
+/* ===== HEADER ===== 
 header{
     background-color: hsla(316, 38%, 86%, 0.582);
 }
@@ -39,7 +40,7 @@ nav{
     text-decoration: none;
     color: #1c1c1c;
     transition: .3s;
-}
+}*/
 
 .active{
     text-decoration: underline;
